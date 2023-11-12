@@ -1,5 +1,6 @@
 import os
 import sys
+from datetime import datetime
 
 import torch
 from torch.utils.data import DataLoader
@@ -55,6 +56,8 @@ if __name__ == "__main__":
                         help="size of each image dimension")
     parser.add_argument("--channels", type=int, default=3,
                         help="number of image channels (If set to 1, convert image to grayscale)")
+    parser.add_argument("--run_name", type=str, default=datetime.now().strftime("%Y%m%d_%H%M%S"),
+                        help="name of output folder within the results folder")
     opt = parser.parse_args()
 
     main(opt)

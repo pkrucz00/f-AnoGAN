@@ -1,5 +1,6 @@
 import os
 import sys
+from datetime import datetime 
 
 import torch
 from torch.utils.data import DataLoader
@@ -73,6 +74,8 @@ if __name__ == "__main__":
                         help="interval betwen image samples")
     parser.add_argument("--seed", type=int, default=None,
                         help="value of a random seed")
+    parser.add_argument("--run_name", type=str, default=datetime.now().strftime("%Y%m%d_%H%M%S"),
+                         help="name of output folder within the results folder")
     opt = parser.parse_args()
 
     main(opt)
